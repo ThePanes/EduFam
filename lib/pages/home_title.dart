@@ -2,6 +2,7 @@
 import 'package:aplication_laboratorio/pages/start_page.dart';
 import 'package:flutter/material.dart';
 
+
 class HomeTitle extends StatefulWidget {
   const HomeTitle({super.key});
 
