@@ -28,7 +28,7 @@ class _HomeTitleState extends State<HomeTitle> {
           children: [
             Card(
               clipBehavior: Clip.antiAlias,
-              child: Column(mainAxisAlignment: MainAxisAlignment.end,children: [Image.asset('assets/edufam.png',fit: BoxFit.cover,)],),
+              child: Column(mainAxisAlignment: MainAxisAlignment.end,children: [Image.asset('assets/edufam.png',fit: BoxFit.cover,width: 100,)],),
             ),
             
             const Icon(
