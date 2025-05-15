@@ -12,12 +12,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    var logger = Logger();
-
-    logger.d("Logger is working!");
 
     return MaterialApp(
-      title: 'laboratorio tres',
+      title: 'EduFam',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
           seedColor: const Color.fromARGB(255, 26, 128, 142),
