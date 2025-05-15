@@ -42,7 +42,7 @@ Se destacan las siguientes Funcionalidades Relevantes de la aplicación:
 Aqui se encuentran los links de lo utilizado para la creación de este trabajo:
 
 https://pub.dev/packages/table_calendar
-
+https://pub.dev/packages/animated_splash_screen
 link imagenes utilizadas:
 
 https://elucabista.com/wp-content/uploads/2017/01/historia.jpg
