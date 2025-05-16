@@ -39,6 +39,10 @@ Se destacan las siguientes Funcionalidades Relevantes de la aplicación:
 
 
 ## Links de Acceso a la información 
+Link del video de la presentación:
+
+https://youtu.be/gcmKJMqGL7A
+
 Aqui se encuentran los links de lo utilizado para la creación de este trabajo:
 
 https://pub.dev/packages/table_calendar
