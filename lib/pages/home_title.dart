@@ -58,3 +58,4 @@ class _HomeTitleState extends State<HomeTitle> {
     );
   }
 }
+

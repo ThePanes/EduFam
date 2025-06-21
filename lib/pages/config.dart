@@ -1,3 +1,4 @@
+import 'package:aplication_laboratorio/pages/preferencias.dart';
 import 'package:flutter/material.dart';
 
 class Config extends StatefulWidget {
@@ -18,43 +19,32 @@ class _ConfigState extends State<Config> {
             alignment: MainAxisAlignment.center,
             children: [
               Card(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center, // Centra verticalmente
-                    children: <Widget>[
-                      OverflowBar(
-                        alignment: MainAxisAlignment.center,
-                        children: [
-                          Text("Fuente",),
-                          const Icon(
-                            Icons.font_download,
-                            size: 80,
-                            color: Color.fromARGB(255, 125, 176, 206),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center, // Centra verticalmente
+                  children: <Widget>[
+                    OverflowBar(
+                      alignment: MainAxisAlignment.center,
+                      children: [
+                        TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const Preferencias()),
+                            );
+                          },
+                          child: Column(
+                            children: [
+                              const Icon(Icons.room_preferences),
+                              const Text('Preferencias'),
+                            ],
                           ),
-                        ],
-                      ),
-                      const SizedBox(height: 10),
-                    ],
-                  ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 10),
+                  ],
                 ),
-                Card(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center, // Centra verticalmente
-                    children: <Widget>[
-                      OverflowBar(
-                        alignment: MainAxisAlignment.center,
-                        children: [
-                          Text("Tema",),
-                          const Icon(
-                            Icons.theater_comedy,
-                            size: 80,
-                            color: Color.fromARGB(255, 0, 0, 0),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 10),
-                    ],
-                  ),
-                ),
+              ),
               Card(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center, // Centra verticalmente
