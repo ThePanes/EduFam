@@ -31,6 +31,8 @@ class _StartPageState extends State<StartPage> {
 
   @override
   Widget build(BuildContext context) {
+    final textColor = Theme.of(context).textTheme.bodyMedium?.color;
+    final cardColor = Theme.of(context).cardColor;
     if (user == null) {
       return const Center(child: CircularProgressIndicator());
     }
@@ -50,14 +52,20 @@ class _StartPageState extends State<StartPage> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              const Icon(Icons.person, size: 80, color: Colors.blueGrey),
+              Icon(Icons.person, size: 80, color: Theme.of(context).iconTheme.color),
               const SizedBox(height: 16),
-              Text('Bienvenido, "${user?.nombre ?? "Usuario"}"', style: TextStyle(fontSize: 20)),
+              Text(
+                'Bienvenido, "${user?.nombre ?? "Usuario"}"',
+                style: TextStyle(fontSize: 20, color: textColor),
+              ),
               const SizedBox(height: 24),
               SizedBox(
                 child: TableCalendar<ActividadEntrega>(
                   rowHeight: 43,
-                  headerStyle: HeaderStyle(formatButtonVisible: false),
+                  headerStyle: HeaderStyle(
+                    formatButtonVisible: false,
+                    titleTextStyle: TextStyle(color: textColor),
+                  ),
                   focusedDay: today,
                   firstDay: DateTime.utc(2010, 10, 16),
                   lastDay: DateTime.utc(2030, 3, 14),
@@ -74,7 +82,7 @@ class _StartPageState extends State<StartPage> {
                           child: Container(
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
-                              color: Colors.red,
+                              color: Theme.of(context).colorScheme.error,
                             ),
                             width: 8,
                             height: 8,
@@ -87,16 +95,12 @@ class _StartPageState extends State<StartPage> {
                 ),
               ),
               const SizedBox(height: 16),
-              const Text("Actividades Pendientes:"),
+              Text("Actividades Pendientes:", style: TextStyle(color: textColor)),
               Column(
                 children: actividades
                     .where((a) => a.fecha.isAfter(DateTime.now().subtract(const Duration(days: 1))))
                     .map((a) => Card(
-                          color: a.ramo == "Matemáticas"
-                              ? Color.fromARGB(255, 253, 164, 164)
-                              : a.ramo == "Lenguaje"
-                                  ? Color.fromARGB(255, 235, 237, 105)
-                                  : Color.fromARGB(255, 164, 222, 253),
+                          color: cardColor,
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
@@ -105,13 +109,14 @@ class _StartPageState extends State<StartPage> {
                                 children: [
                                   Text(
                                     "${_nombreDia(a.fecha)}, ${a.fecha.day.toString().padLeft(2, '0')}/${a.fecha.month.toString().padLeft(2, '0')}/${a.fecha.year}",
+                                    style: TextStyle(color: textColor),
                                   ),
-                                  const Icon(
+                                  Icon(
                                     Icons.dangerous,
                                     size: 80,
-                                    color: Color.fromARGB(255, 253, 62, 62),
+                                    color: Theme.of(context).colorScheme.error,
                                   ),
-                                  Text(a.descripcion),
+                                  Text(a.descripcion, style: TextStyle(color: textColor)),
                                   const SizedBox(height: 20, width: 10),
                                 ],
                               ),
@@ -135,8 +140,8 @@ class _StartPageState extends State<StartPage> {
           },
           child: Column(
             children: [
-              const Icon(Icons.note),
-              const Text('Promedio')
+              Icon(Icons.note, color: Theme.of(context).iconTheme.color),
+              Text('Promedio', style: TextStyle(color: textColor))
             ],
           ),
         ),
@@ -149,8 +154,8 @@ class _StartPageState extends State<StartPage> {
           },
           child: Column(
             children: [
-              const Icon(Icons.person),
-              const Text('Perfil')
+              Icon(Icons.person, color: Theme.of(context).iconTheme.color),
+              Text('Perfil', style: TextStyle(color: textColor))
             ],
           ),
         ),
@@ -162,7 +167,10 @@ class _StartPageState extends State<StartPage> {
             );
           },
           child: Column(
-            children: [const Icon(Icons.book),const Text('Ramos')],
+            children: [
+              Icon(Icons.book, color: Theme.of(context).iconTheme.color),
+              Text('Ramos', style: TextStyle(color: textColor))
+            ],
           ),
         ),
         TextButton(
@@ -174,14 +182,12 @@ class _StartPageState extends State<StartPage> {
           },
           child: Column(
             children: [
-              const Icon(Icons.settings),
-              const Text('Configuracion')
+              Icon(Icons.settings, color: Theme.of(context).iconTheme.color),
+              Text('Configuracion', style: TextStyle(color: textColor))
             ],
           ),
         ),
-        
       ],
-
     );
   }
 }

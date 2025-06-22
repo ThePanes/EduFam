@@ -28,6 +28,7 @@ class _HomeTitleState extends State<HomeTitle> {
 
   @override
   Widget build(BuildContext context) {
+    final textColor = Theme.of(context).textTheme.bodyMedium?.color;
     if (user == null) {
       return const Center(child: CircularProgressIndicator());
     }
@@ -36,7 +37,7 @@ class _HomeTitleState extends State<HomeTitle> {
         clipBehavior: Clip.antiAlias,
         title: Column(
           children: [
-            Text("Edufam"),
+            Text("Edufam", style: TextStyle(color: textColor)),
           ],
         ),
       ),
@@ -51,15 +52,15 @@ class _HomeTitleState extends State<HomeTitle> {
                 children: [Image.asset('assets/edufam.png', fit: BoxFit.cover, width: 100,)],
               ),
             ),
-            const Icon(
+            Icon(
               Icons.person,
               size: 80,
-              color: Color.fromARGB(255, 24, 152, 215),
+              color: Theme.of(context).iconTheme.color,
             ),
             const SizedBox(height: 16),
             Text(
               'Bienvenido, "${user?.nombre ?? "Usuario"}"',
-              style: const TextStyle(fontSize: 20),
+              style: TextStyle(fontSize: 20, color: textColor),
             ),
             const SizedBox(height: 24),
             TextButton(
@@ -69,7 +70,7 @@ class _HomeTitleState extends State<HomeTitle> {
                   MaterialPageRoute(builder: (context) => const StartPage()),
                 );
               },
-              child: const Text('Iniciar Sesion'),
+              child: Text('Iniciar Sesion', style: TextStyle(color: textColor)),
             ),
           ],
         ),

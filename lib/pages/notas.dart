@@ -57,6 +57,8 @@ class _NotasState extends State<Notas> {
 
   @override
   Widget build(BuildContext context) {
+    final textColor = Theme.of(context).textTheme.bodyMedium?.color;
+    final cardColor = Theme.of(context).cardColor;
     return Scaffold(
       appBar: AppBar(title: const Text('Promedio')),
       body: FutureBuilder<Map<String, double?>>(
@@ -73,14 +75,15 @@ class _NotasState extends State<Notas> {
             children: promedios.entries.map((entry) => GestureDetector(
               onTap: () => _verNotasRamo(entry.key),
               child: Card(
+                color: cardColor,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(entry.key, textAlign: TextAlign.center),
+                    Text(entry.key, textAlign: TextAlign.center, style: TextStyle(color: textColor)),
                     const SizedBox(height: 10),
                     entry.value == null
-                      ? const Text("Sin notas evaluadas", style: TextStyle(color: Colors.orange))
-                      : Text("Promedio: ${entry.value!.toStringAsFixed(1)}"),
+                      ? Text("Sin notas evaluadas", style: TextStyle(color: Theme.of(context).colorScheme.secondary))
+                      : Text("Promedio: ${entry.value!.toStringAsFixed(1)}", style: TextStyle(color: Theme.of(context).colorScheme.primary)),
                   ],
                 ),
               ),

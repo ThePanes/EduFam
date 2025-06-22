@@ -17,6 +17,7 @@ class Ramos extends StatefulWidget {
 class _RamosState extends State<Ramos> {
   @override
   Widget build(BuildContext context) {
+    final textColor = Theme.of(context).textTheme.bodyMedium?.color;
     return Scaffold(
       appBar: AppBar(title: const Text('Ramos')),
       body: Column(
@@ -25,9 +26,10 @@ class _RamosState extends State<Ramos> {
             alignment: MainAxisAlignment.center,
             children: [
               Card(
+                color: Theme.of(context).cardColor,
                 clipBehavior: Clip.antiAlias,
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center, // Centra verticalmente
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     OverflowBar(
                       alignment: MainAxisAlignment.center,
@@ -41,10 +43,13 @@ class _RamosState extends State<Ramos> {
                           },
                           child: Column(
                             children: [
-                              
-                              Text("Matematicas",),
-                              SizedBox(width: 400,height:100,child: Image.asset('assets/matematicasensenanzamedia.jpg',fit: BoxFit.cover,),),
-                              Text("Curso: 8B",),
+                              Text("Matematicas", style: TextStyle(color: textColor)),
+                              SizedBox(
+                                width: 400,
+                                height: 100,
+                                child: Image.asset('assets/matematicasensenanzamedia.jpg', fit: BoxFit.cover,),
+                              ),
+                              Text("Curso: 8B", style: TextStyle(color: textColor)),
                             ],
                           ),
                         ),
@@ -55,8 +60,9 @@ class _RamosState extends State<Ramos> {
                 ),
               ),
               Card(
+                color: Theme.of(context).cardColor,
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center, // Centra verticalmente
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     OverflowBar(
                       alignment: MainAxisAlignment.center,
@@ -70,9 +76,13 @@ class _RamosState extends State<Ramos> {
                           },
                           child: Column(
                             children: [
-                              Text("Lenguaje",),
-                              SizedBox(width: 400,height:100,child: Image.asset('assets/len.jpg',fit: BoxFit.cover,),),
-                              Text("Curso: 8B",),
+                              Text("Lenguaje", style: TextStyle(color: textColor)),
+                              SizedBox(
+                                width: 400,
+                                height: 100,
+                                child: Image.asset('assets/len.jpg', fit: BoxFit.cover,),
+                              ),
+                              Text("Curso: 8B", style: TextStyle(color: textColor)),
                             ],
                           ),
                         ),
@@ -83,8 +93,9 @@ class _RamosState extends State<Ramos> {
                 ),
               ),
               Card(
+                color: Theme.of(context).cardColor,
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center, // Centra verticalmente
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     OverflowBar(
                       alignment: MainAxisAlignment.center,
@@ -98,9 +109,13 @@ class _RamosState extends State<Ramos> {
                           },
                           child: Column(
                             children: [
-                              Text("Historia",),
-                              SizedBox(width: 400,height:100,child: Image.asset('assets/historia.jpg',fit: BoxFit.cover,),),
-                              Text("Curso: 8B",),
+                              Text("Historia", style: TextStyle(color: textColor)),
+                              SizedBox(
+                                width: 400,
+                                height: 100,
+                                child: Image.asset('assets/historia.jpg', fit: BoxFit.cover,),
+                              ),
+                              Text("Curso: 8B", style: TextStyle(color: textColor)),
                             ],
                           ),
                         ),
@@ -649,25 +664,26 @@ class _EntregaActividadState extends State<EntregaActividad> {
       // Al entregar, crea la nota si no existe
       final notaExistente = await NotaDB.getNota(widget.ramo, widget.unidad);
       if (notaExistente == null) {
-        // Usa un id único, por ejemplo hashCode de ramo+unidad
         await NotaDB.insertOrUpdateNota(
           NotaEntrega(
             id: (widget.ramo + widget.unidad).hashCode,
             ramo: widget.ramo,
             unidad: widget.unidad,
-            nota: null, // aún sin evaluar
+            nota: null,
           ),
         );
       }
-      setState(() {}); // Refresca para mostrar la nota
+      setState(() {});
     }
   }
 
   @override
   Widget build(BuildContext context) {
     final textColor = Theme.of(context).textTheme.bodyMedium?.color;
+    final secondaryColor = Theme.of(context).colorScheme.secondary;
+    final primaryColor = Theme.of(context).colorScheme.primary;
     return Card(
-      color: Theme.of(context).cardColor, // Usa el color del tema
+      color: Theme.of(context).cardColor,
       margin: const EdgeInsets.all(16),
       child: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -693,8 +709,8 @@ class _EntregaActividadState extends State<EntregaActividad> {
                 await _takePicture();
                 await _loadImagePath();
               },
-              icon: Icon(Icons.camera_alt),
-              label: Text("Tomar foto y subir"),
+              icon: Icon(Icons.camera_alt, color: primaryColor),
+              label: Text("Tomar foto y subir", style: TextStyle(color: textColor)),
             ),
             ElevatedButton(
               onPressed: () async {
@@ -708,7 +724,7 @@ class _EntregaActividadState extends State<EntregaActividad> {
                 );
                 setState(() {});
               },
-              child: const Text("Poner nota de prueba"),
+              child: Text("Poner nota de prueba", style: TextStyle(color: textColor)),
             ),
             FutureBuilder<double?>(
               future: NotaDB.getNota(widget.ramo, widget.unidad).then((n) => n?.nota),
@@ -718,12 +734,12 @@ class _EntregaActividadState extends State<EntregaActividad> {
                 }
                 final nota = snapshot.data;
                 if (nota == null) {
-                  return Text("Aún sin evaluar", style: TextStyle(color: Colors.orange));
+                  return Text("Aún sin evaluar", style: TextStyle(color: secondaryColor));
                 }
                 return Text(
                   "Nota: ${nota.toStringAsFixed(1)}",
                   style: TextStyle(
-                    color: Colors.green,
+                    color: primaryColor,
                     fontWeight: FontWeight.bold,
                   ),
                 );

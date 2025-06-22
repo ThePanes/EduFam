@@ -66,6 +66,8 @@ class _ProfileState extends State<Profile> {
 
   @override
   Widget build(BuildContext context) {
+    final textColor = Theme.of(context).textTheme.bodyMedium?.color;
+    final cardColor = Theme.of(context).cardColor;
     if (user == null) {
       return const Center(child: CircularProgressIndicator());
     }
@@ -75,13 +77,14 @@ class _ProfileState extends State<Profile> {
         child: Column(
           children: <Widget>[
             Card(
+              color: cardColor,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  const Icon(Icons.person, size: 80, color: Colors.blueGrey),
-                  Text('"${user!.nombre}"', style: const TextStyle(fontSize: 20)),
+                  Icon(Icons.person, size: 80, color: Theme.of(context).iconTheme.color),
+                  Text('"${user!.nombre}"', style: TextStyle(fontSize: 20, color: textColor)),
                   IconButton(
-                    icon: const Icon(Icons.edit, size: 30, color: Color.fromARGB(255, 196, 194, 191)),
+                    icon: Icon(Icons.edit, size: 30, color: Theme.of(context).iconTheme.color),
                     onPressed: () => _editField('Usuario', user!.nombre),
                   ),
                   const SizedBox(height: 25),
@@ -89,15 +92,16 @@ class _ProfileState extends State<Profile> {
               ),
             ),
             Card(
+              color: cardColor,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   OverflowBar(
                     alignment: MainAxisAlignment.center,
                     children: [
-                      Text("Correo Electronico: ${user!.correo}"),
+                      Text("Correo Electronico: ${user!.correo}", style: TextStyle(color: textColor)),
                       IconButton(
-                        icon: const Icon(Icons.edit, size: 30, color: Color.fromARGB(255, 196, 194, 191)),
+                        icon: Icon(Icons.edit, size: 30, color: Theme.of(context).iconTheme.color),
                         onPressed: () => _editField('Correo', user!.correo),
                       ),
                     ],
@@ -107,15 +111,16 @@ class _ProfileState extends State<Profile> {
               ),
             ),
             Card(
+              color: cardColor,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   OverflowBar(
                     alignment: MainAxisAlignment.center,
                     children: [
-                      Text("Contraseña: ${user!.contrasena}"),
+                      Text("Contraseña: ${user!.contrasena}", style: TextStyle(color: textColor)),
                       IconButton(
-                        icon: const Icon(Icons.edit, size: 30, color: Color.fromARGB(255, 196, 194, 191)),
+                        icon: Icon(Icons.edit, size: 30, color: Theme.of(context).iconTheme.color),
                         onPressed: () => _editField('Contraseña', user!.contrasena),
                       ),
                     ],
@@ -125,15 +130,16 @@ class _ProfileState extends State<Profile> {
               ),
             ),
             Card(
+              color: cardColor,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   OverflowBar(
                     alignment: MainAxisAlignment.center,
                     children: [
-                      Text("Direccion: ${user!.direccion}"),
+                      Text("Direccion: ${user!.direccion}", style: TextStyle(color: textColor)),
                       IconButton(
-                        icon: const Icon(Icons.edit, size: 30, color: Color.fromARGB(255, 196, 194, 191)),
+                        icon: Icon(Icons.edit, size: 30, color: Theme.of(context).iconTheme.color),
                         onPressed: () => _editField('Dirección', user!.direccion),
                       ),
                     ],
@@ -143,15 +149,16 @@ class _ProfileState extends State<Profile> {
               ),
             ),
             Card(
+              color: cardColor,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   OverflowBar(
                     alignment: MainAxisAlignment.center,
                     children: [
-                      Text("Telefono: ${user!.telefono}"),
+                      Text("Telefono: ${user!.telefono}", style: TextStyle(color: textColor)),
                       IconButton(
-                        icon: const Icon(Icons.edit, size: 30, color: Color.fromARGB(255, 196, 194, 191)),
+                        icon: Icon(Icons.edit, size: 30, color: Theme.of(context).iconTheme.color),
                         onPressed: () => _editField('Teléfono', user!.telefono),
                       ),
                     ],
@@ -161,6 +168,7 @@ class _ProfileState extends State<Profile> {
               ),
             ),
             Card(
+              color: cardColor,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
@@ -168,7 +176,7 @@ class _ProfileState extends State<Profile> {
                     alignment: MainAxisAlignment.center,
                     children: [
                       SizedBox(height: 40, width: 350),
-                      Text(user!.colegio),
+                      Text(user!.colegio, style: TextStyle(color: textColor)),
                     ],
                   ),
                   const SizedBox(height: 50),

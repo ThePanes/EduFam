@@ -14,18 +14,21 @@ class _PreferenciasState extends State<Preferencias> {
   @override
   Widget build(BuildContext context) {
     final settings = Provider.of<SettingsProvider>(context);
+    final textColor = Theme.of(context).textTheme.bodyMedium?.color;
+    final cardColor = Theme.of(context).cardColor;
     return Scaffold(
       appBar: AppBar(title: const Text('Preferencias')),
       body: Column(
         children: <Widget>[
           Card(
+            color: cardColor,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 OverflowBar(
                   alignment: MainAxisAlignment.center,
                   children: [
-                    const Text("Tamaño Fuente"),
+                    Text("Tamaño Fuente", style: TextStyle(color: textColor)),
                     Slider(
                       min: 12,
                       max: 28,
@@ -36,11 +39,12 @@ class _PreferenciasState extends State<Preferencias> {
                         settings.setFontSize(value);
                       },
                     ),
-                    Text('${settings.fontSize.toStringAsFixed(0)} pt'),
-                    const Icon(
+                    Text('${settings.fontSize.toStringAsFixed(0)} pt',
+                        style: TextStyle(color: textColor)),
+                    Icon(
                       Icons.font_download,
                       size: 80,
-                      color: Color.fromARGB(255, 125, 176, 206),
+                      color: Theme.of(context).iconTheme.color,
                     ),
                   ],
                 ),
@@ -49,13 +53,14 @@ class _PreferenciasState extends State<Preferencias> {
             ),
           ),
           Card(
+            color: cardColor,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 OverflowBar(
                   alignment: MainAxisAlignment.center,
                   children: [
-                    const Text("Tema"),
+                    Text("Tema", style: TextStyle(color: textColor)),
                     Switch(
                       value: settings.isDarkMode,
                       onChanged: (value) {
@@ -66,8 +71,8 @@ class _PreferenciasState extends State<Preferencias> {
                       settings.isDarkMode ? Icons.dark_mode : Icons.light_mode,
                       size: 80,
                       color: settings.isDarkMode
-                          ? Colors.amber
-                          : const Color.fromARGB(255, 0, 0, 0),
+                          ? Theme.of(context).colorScheme.secondary
+                          : Theme.of(context).iconTheme.color,
                     ),
                   ],
                 ),
@@ -76,6 +81,7 @@ class _PreferenciasState extends State<Preferencias> {
             ),
           ),
           Card(
+            color: cardColor,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
@@ -86,13 +92,15 @@ class _PreferenciasState extends State<Preferencias> {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => const AcercaDe()),
+                          MaterialPageRoute(
+                              builder: (context) => const AcercaDe()),
                         );
                       },
                       child: Column(
                         children: [
-                          const Icon(Icons.room_preferences),
-                          const Text('Acerca de'),
+                          Icon(Icons.room_preferences,
+                              color: Theme.of(context).iconTheme.color),
+                          Text('Acerca de', style: TextStyle(color: textColor)),
                         ],
                       ),
                     ),

@@ -32,9 +32,20 @@ class MyApp extends StatelessWidget {
             ),
             fontFamily: 'Arial',
             brightness: settings.isDarkMode ? Brightness.dark : Brightness.light,
-            textTheme: Theme.of(context).textTheme.apply(
-              fontSizeFactor: settings.fontSize / 16.0,
-            ),
+            textTheme: (settings.isDarkMode
+                ? const TextTheme(
+                    bodyMedium: TextStyle(color: Colors.white, fontSize: 16),
+                    bodySmall: TextStyle(color: Colors.white70, fontSize: 14),
+                    titleLarge: TextStyle(color: Colors.white, fontSize: 20),
+                  )
+                : const TextTheme(
+                    bodyMedium: TextStyle(color: Colors.black, fontSize: 16),
+                    bodySmall: TextStyle(color: Colors.black87, fontSize: 14),
+                    titleLarge: TextStyle(color: Colors.black, fontSize: 20),
+                  )
+              ).apply(
+                fontSizeFactor: settings.fontSize / 16.0, // <-- Esto aplica el tamaño global
+              ),
           ),
           home: AnimatedSplashScreen(
             duration: 3000,
