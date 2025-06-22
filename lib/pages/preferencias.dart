@@ -1,3 +1,4 @@
+import 'package:aplication_laboratorio/pages/acerca_de.dart';
 import 'package:flutter/material.dart';
 
 class Preferencias extends StatefulWidget {
@@ -21,7 +22,7 @@ class _PreferenciasState extends State<Preferencias> {
                       OverflowBar(
                         alignment: MainAxisAlignment.center,
                         children: [
-                          Text("Fuente",),
+                          Text("Tamaño Fuente",),
                           const Icon(
                             Icons.font_download,
                             size: 80,
@@ -84,30 +85,4 @@ class _PreferenciasState extends State<Preferencias> {
       ),
     );
   }
-}
-class AcercaDe extends StatefulWidget {
-  const AcercaDe({super.key});
-
-  @override
-  State<AcercaDe> createState() => _AcercaDeState();
-}
-class _AcercaDeState extends State<AcercaDe> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Acerca de')),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: <Widget>[
-        
-        ]
-      ),
-    );
-  }
-}
-class Languaje extends StatefulWidget {
-  const Languaje({super.key});
-
-  @override
-  _AcercaDeState createState() => _AcercaDeState();
 }
