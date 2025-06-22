@@ -30,6 +30,9 @@ class MyApp extends StatelessWidget {
               seedColor: const Color.fromARGB(255, 26, 128, 142),
               brightness: settings.isDarkMode ? Brightness.dark : Brightness.light,
             ),
+            cardColor: settings.isDarkMode
+                ? const Color(0xFF23272E) // Un gris azulado para oscuro
+                : const Color(0xFFF5F5F5), // Un gris claro para claro
             fontFamily: 'Arial',
             brightness: settings.isDarkMode ? Brightness.dark : Brightness.light,
             textTheme: (settings.isDarkMode
