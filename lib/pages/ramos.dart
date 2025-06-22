@@ -4,7 +4,8 @@ import 'package:logger/logger.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:aplication_laboratorio/pages/start_page.dart'; // Importa la lista de actividades
+import 'package:aplication_laboratorio/pages/start_page.dart';
+import 'package:aplication_laboratorio/data/nota_db.dart';
 
 class Ramos extends StatefulWidget {
   const Ramos({super.key});
@@ -24,91 +25,91 @@ class _RamosState extends State<Ramos> {
             alignment: MainAxisAlignment.center,
             children: [
               Card(
-                  clipBehavior: Clip.antiAlias,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center, // Centra verticalmente
-                    children: <Widget>[
-                      OverflowBar(
-                        alignment: MainAxisAlignment.center,
-                        children: [
-                          TextButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => const Mathmatics()),
-                              );
-                            },
-                            child: Column(
-                              children: [
-                                
-                                Text("Matematicas",),
-                                SizedBox(width: 400,height:100,child: Image.asset('assets/matematicasensenanzamedia.jpg',fit: BoxFit.cover,),),
-                                Text("Curso: 8B",),
-                              ],
-                            ),
+                clipBehavior: Clip.antiAlias,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center, // Centra verticalmente
+                  children: <Widget>[
+                    OverflowBar(
+                      alignment: MainAxisAlignment.center,
+                      children: [
+                        TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const Mathmatics()),
+                            );
+                          },
+                          child: Column(
+                            children: [
+                              
+                              Text("Matematicas",),
+                              SizedBox(width: 400,height:100,child: Image.asset('assets/matematicasensenanzamedia.jpg',fit: BoxFit.cover,),),
+                              Text("Curso: 8B",),
+                            ],
                           ),
-                        ],
-                      ),
-                      const SizedBox(height: 10),
-                    ],
-                  ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 10),
+                  ],
                 ),
-                Card(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center, // Centra verticalmente
-                    children: <Widget>[
-                      OverflowBar(
-                        alignment: MainAxisAlignment.center,
-                        children: [
-                          TextButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => const Languaje()),
-                              );
-                            },
-                            child: Column(
-                              children: [
-                                Text("Lenguaje",),
-                                SizedBox(width: 400,height:100,child: Image.asset('assets/len.jpg',fit: BoxFit.cover,),),
-                                Text("Curso: 8B",),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 50),
-                    ],
-                  ),
-                ),
+              ),
               Card(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center, // Centra verticalmente
-                    children: <Widget>[
-                      OverflowBar(
-                        alignment: MainAxisAlignment.center,
-                        children: [
-                          TextButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => const History()),
-                              );
-                            },
-                            child: Column(
-                              children: [
-                                Text("Historia",),
-                                SizedBox(width: 400,height:100,child: Image.asset('assets/historia.jpg',fit: BoxFit.cover,),),
-                                Text("Curso: 8B",),
-                              ],
-                            ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center, // Centra verticalmente
+                  children: <Widget>[
+                    OverflowBar(
+                      alignment: MainAxisAlignment.center,
+                      children: [
+                        TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const Languaje()),
+                            );
+                          },
+                          child: Column(
+                            children: [
+                              Text("Lenguaje",),
+                              SizedBox(width: 400,height:100,child: Image.asset('assets/len.jpg',fit: BoxFit.cover,),),
+                              Text("Curso: 8B",),
+                            ],
                           ),
-                        ],
-                      ),
-                      const SizedBox(height: 50),
-                    ],
-                  ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 50),
+                  ],
                 ),
+              ),
+              Card(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center, // Centra verticalmente
+                  children: <Widget>[
+                    OverflowBar(
+                      alignment: MainAxisAlignment.center,
+                      children: [
+                        TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const History()),
+                            );
+                          },
+                          child: Column(
+                            children: [
+                              Text("Historia",),
+                              SizedBox(width: 400,height:100,child: Image.asset('assets/historia.jpg',fit: BoxFit.cover,),),
+                              Text("Curso: 8B",),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 50),
+                  ],
+                ),
+              ),
             ],
           ),
           const SizedBox(height: 50),
@@ -200,9 +201,9 @@ class _MathmaticsState extends State<Mathmatics> {
                   const SizedBox(height: 20),
                   EntregaActividad(
                     storageKey: 'math_unidad1',
-                    tituloUnidad: actividad1 != null
-                        ? 'Entrega: Foto de la actividad de Matemáticas - Unidad 1\nFecha entrega: ${actividad1.fecha.day.toString().padLeft(2, '0')}/${actividad1.fecha.month.toString().padLeft(2, '0')}/${actividad1.fecha.year}'
-                        : 'Entrega: Foto de la actividad de Matemáticas - Unidad 1',
+                    tituloUnidad: 'Entrega: Foto de la actividad de Matemáticas - Unidad 1',
+                    ramo: 'Matemáticas',
+                    unidad: 'Unidad 1',
                   ),
                   const SizedBox(height: 30),
                 ],
@@ -225,6 +226,8 @@ class _MathmaticsState extends State<Mathmatics> {
                     tituloUnidad: actividad2 != null
                         ? 'Entrega: Foto de la actividad de Matemáticas - Unidad 2\nFecha entrega: ${actividad2.fecha.day.toString().padLeft(2, '0')}/${actividad2.fecha.month.toString().padLeft(2, '0')}/${actividad2.fecha.year}'
                         : 'Entrega: Foto de la actividad de Matemáticas - Unidad 2',
+                    ramo: 'Matemáticas',
+                    unidad: 'Unidad 2',
                   ),
                   const SizedBox(height: 30),
                 ],
@@ -247,6 +250,8 @@ class _MathmaticsState extends State<Mathmatics> {
                     tituloUnidad: actividad3 != null
                         ? 'Entrega: Foto de la actividad de Matemáticas - Unidad 3\nFecha entrega: ${actividad3.fecha.day.toString().padLeft(2, '0')}/${actividad3.fecha.month.toString().padLeft(2, '0')}/${actividad3.fecha.year}'
                         : 'Entrega: Foto de la actividad de Matemáticas - Unidad 3',
+                    ramo: 'Matemáticas',
+                    unidad: 'Unidad 3',
                   ),
                   const SizedBox(height: 30),
                 ],
@@ -343,6 +348,8 @@ class _LanguajeState extends State<Languaje> {
                   EntregaActividad(
                     storageKey: 'lenguaje_unidad1',
                     tituloUnidad: 'Entrega: Foto de la actividad de Lenguaje - Unidad 1',
+                    ramo: 'Lenguaje',
+                    unidad: 'Unidad 1',
                   ),
                   const SizedBox(height: 30),
                 ],
@@ -368,6 +375,8 @@ class _LanguajeState extends State<Languaje> {
                   EntregaActividad(
                     storageKey: 'lenguaje_unidad2',
                     tituloUnidad: 'Entrega: Foto de la actividad de Lenguaje - Unidad 2',
+                    ramo: 'Lenguaje',
+                    unidad: 'Unidad 2',
                   ),
                   const SizedBox(height: 30),
                 ],
@@ -393,6 +402,8 @@ class _LanguajeState extends State<Languaje> {
                   EntregaActividad(
                     storageKey: 'lenguaje_unidad3',
                     tituloUnidad: 'Entrega: Foto de la actividad de Lenguaje - Unidad 3',
+                    ramo: 'Lenguaje',
+                    unidad: 'Unidad 3',
                   ),
                   const SizedBox(height: 30),
                 ],
@@ -490,6 +501,8 @@ class _HistoryState extends State<History> {
                   EntregaActividad(
                     storageKey: 'historia_unidad1',
                     tituloUnidad: 'Entrega: Foto de la actividad de Historia - Unidad 1',
+                    ramo: 'Historia',
+                    unidad: 'Unidad 1',
                   ),
                   const SizedBox(height: 30),
                 ],
@@ -515,6 +528,8 @@ class _HistoryState extends State<History> {
                   EntregaActividad(
                     storageKey: 'historia_unidad2',
                     tituloUnidad: 'Entrega: Foto de la actividad de Historia - Unidad 2',
+                    ramo: 'Historia',
+                    unidad: 'Unidad 2',
                   ),
                   const SizedBox(height: 30),
                 ],
@@ -540,6 +555,8 @@ class _HistoryState extends State<History> {
                   EntregaActividad(
                     storageKey: 'historia_unidad3',
                     tituloUnidad: 'Entrega: Foto de la actividad de Historia - Unidad 3',
+                    ramo: 'Historia',
+                    unidad: 'Unidad 3',
                   ),
                   const SizedBox(height: 30),
                 ],
@@ -574,7 +591,15 @@ class _HistoryState extends State<History> {
 class EntregaActividad extends StatefulWidget {
   final String storageKey;
   final String tituloUnidad;
-  const EntregaActividad({super.key, required this.storageKey, required this.tituloUnidad});
+  final String ramo;
+  final String unidad;
+  const EntregaActividad({
+    super.key,
+    required this.storageKey,
+    required this.tituloUnidad,
+    required this.ramo,
+    required this.unidad,
+  });
 
   @override
   State<EntregaActividad> createState() => _EntregaActividadState();
@@ -620,23 +645,48 @@ class _EntregaActividadState extends State<EntregaActividad> {
       });
       final prefs = await SharedPreferences.getInstance();
       await prefs.setString(widget.storageKey, pickedFile.path);
+
+      // Al entregar, crea la nota si no existe
+      final notaExistente = await NotaDB.getNota(widget.ramo, widget.unidad);
+      if (notaExistente == null) {
+        // Usa un id único, por ejemplo hashCode de ramo+unidad
+        await NotaDB.insertOrUpdateNota(
+          NotaEntrega(
+            id: (widget.ramo + widget.unidad).hashCode,
+            ramo: widget.ramo,
+            unidad: widget.unidad,
+            nota: null, // aún sin evaluar
+          ),
+        );
+      }
+      setState(() {}); // Refresca para mostrar la nota
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    final textColor = Theme.of(context).textTheme.bodyMedium?.color;
     return Card(
-      color: Colors.grey[100],
+      color: Theme.of(context).cardColor, // Usa el color del tema
       margin: const EdgeInsets.all(16),
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            Text(widget.tituloUnidad, style: TextStyle(fontWeight: FontWeight.bold)),
+            Text(
+              widget.tituloUnidad,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: textColor,
+              ),
+            ),
             const SizedBox(height: 10),
             _imageFile != null
                 ? Image.file(_imageFile!, height: 150)
-                : const Text("No se ha subido ninguna foto."),
+                : Text(
+                    "No se ha subido ninguna foto.",
+                    style: TextStyle(color: textColor),
+                  ),
             const SizedBox(height: 10),
             ElevatedButton.icon(
               onPressed: () async {
@@ -645,6 +695,39 @@ class _EntregaActividadState extends State<EntregaActividad> {
               },
               icon: Icon(Icons.camera_alt),
               label: Text("Tomar foto y subir"),
+            ),
+            ElevatedButton(
+              onPressed: () async {
+                await NotaDB.insertOrUpdateNota(
+                  NotaEntrega(
+                    id: (widget.ramo + widget.unidad).hashCode,
+                    ramo: widget.ramo,
+                    unidad: widget.unidad,
+                    nota: 4.2,
+                  ),
+                );
+                setState(() {});
+              },
+              child: const Text("Poner nota de prueba"),
+            ),
+            FutureBuilder<double?>(
+              future: NotaDB.getNota(widget.ramo, widget.unidad).then((n) => n?.nota),
+              builder: (context, snapshot) {
+                if (!snapshot.hasData) {
+                  return Text("Cargando nota...", style: TextStyle(color: textColor));
+                }
+                final nota = snapshot.data;
+                if (nota == null) {
+                  return Text("Aún sin evaluar", style: TextStyle(color: Colors.orange));
+                }
+                return Text(
+                  "Nota: ${nota.toStringAsFixed(1)}",
+                  style: TextStyle(
+                    color: Colors.green,
+                    fontWeight: FontWeight.bold,
+                  ),
+                );
+              },
             ),
           ],
         ),
