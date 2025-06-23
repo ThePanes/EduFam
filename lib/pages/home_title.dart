@@ -1,7 +1,6 @@
-import 'package:aplication_laboratorio/data/user_db.dart';
-import 'package:aplication_laboratorio/pages/start_page.dart';
+import 'package:edufam/data/user_db.dart';
+import 'package:edufam/pages/start_page.dart';
 import 'package:flutter/material.dart';
-
 
 class HomeTitle extends StatefulWidget {
   const HomeTitle({super.key});

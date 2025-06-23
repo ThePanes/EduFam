@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:aplication_laboratorio/data/user_db.dart';
+import 'package:edufam/data/user_db.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});

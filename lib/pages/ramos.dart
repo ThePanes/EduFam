@@ -4,8 +4,8 @@ import 'package:logger/logger.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:aplication_laboratorio/pages/start_page.dart';
-import 'package:aplication_laboratorio/data/nota_db.dart';
+import 'package:edufam/pages/start_page.dart';
+import 'package:edufam/data/nota_db.dart';
 
 class Ramos extends StatefulWidget {
   const Ramos({super.key});

@@ -1,12 +1,11 @@
-import 'package:aplication_laboratorio/pages/home_title.dart';
 import 'package:flutter/material.dart';
-import 'package:logger/logger.dart';
-import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:provider/provider.dart';
 import 'providers/settings_provider.dart';
-import 'pages/preferencias.dart';
+import 'pages/home_title.dart';
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(
     ChangeNotifierProvider(
       create: (_) => SettingsProvider(),
@@ -18,7 +17,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return Consumer<SettingsProvider>(
@@ -31,8 +29,8 @@ class MyApp extends StatelessWidget {
               brightness: settings.isDarkMode ? Brightness.dark : Brightness.light,
             ),
             cardColor: settings.isDarkMode
-                ? const Color(0xFF23272E) // Un gris azulado para oscuro
-                : const Color(0xFFF5F5F5), // Un gris claro para claro
+                ? const Color(0xFF23272E)
+                : const Color(0xFFF5F5F5),
             fontFamily: 'Arial',
             brightness: settings.isDarkMode ? Brightness.dark : Brightness.light,
             textTheme: (settings.isDarkMode
@@ -47,12 +45,12 @@ class MyApp extends StatelessWidget {
                     titleLarge: TextStyle(color: Colors.black, fontSize: 20),
                   )
               ).apply(
-                fontSizeFactor: settings.fontSize / 16.0, // <-- Esto aplica el tamaño global
+                fontSizeFactor: settings.fontSize / 16.0,
               ),
           ),
           home: AnimatedSplashScreen(
             duration: 3000,
-            splash: Image.asset('assets/edufam.png',fit: BoxFit.cover,width: 100,),
+            splash: Image.asset('assets/edufam.png', fit: BoxFit.cover, width: 100,),
             nextScreen: HomeTitle(),
             splashTransition: SplashTransition.fadeTransition,
             backgroundColor: const Color.fromARGB(255, 255, 221, 174)),

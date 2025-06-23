@@ -1,8 +1,8 @@
-import 'package:aplication_laboratorio/data/user_db.dart';
-import 'package:aplication_laboratorio/pages/config.dart';
-import 'package:aplication_laboratorio/pages/notas.dart';
-import 'package:aplication_laboratorio/pages/profile.dart';
-import 'package:aplication_laboratorio/pages/ramos.dart';
+import 'package:edufam/data/user_db.dart';
+import 'package:edufam/pages/config.dart';
+import 'package:edufam/pages/notas.dart';
+import 'package:edufam/pages/profile.dart';
+import 'package:edufam/pages/ramos.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 

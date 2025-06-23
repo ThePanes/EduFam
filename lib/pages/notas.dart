@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:aplication_laboratorio/data/nota_db.dart';
+import 'package:edufam/data/nota_db.dart';
 
 class Notas extends StatefulWidget {
   const Notas({super.key});

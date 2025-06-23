@@ -1,4 +1,4 @@
-import 'package:aplication_laboratorio/pages/preferencias.dart';
+import 'package:edufam/pages/preferencias.dart';
 import 'package:flutter/material.dart';
 
 class Config extends StatefulWidget {

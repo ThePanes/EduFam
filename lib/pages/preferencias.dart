@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../providers/settings_provider.dart';
-import 'acerca_de.dart';
+import 'package:edufam/providers/settings_provider.dart';
+import 'package:edufam/pages/acerca_de.dart';
 
 class Preferencias extends StatefulWidget {
   const Preferencias({super.key});
