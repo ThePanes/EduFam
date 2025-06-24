@@ -33,9 +33,15 @@ Se destacan las siguientes Funcionalidades Relevantes de la aplicación:
 - Sistema de notificaciones, para recordar fechas de entrega DENTRO DE LA APLICACIÓN (Las notificaciones que aparecen en el menu principal de las tareas pendientes).
 
 - Compatibilidad con dispositivos Android.
-## Diagramas(Solo links de acceso)
+## Diagramas
+![Jerarquia de Pantallas](https://drive.google.com/file/d/1dSAQjuizMEFSyyGODmK5cYHiGeaGz5x-/view?usp=sharing)
+
 https://drive.google.com/file/d/1dSAQjuizMEFSyyGODmK5cYHiGeaGz5x-/view?usp=sharing
 https://drive.google.com/file/d/1Vm38I1vGgq0OhgKezWrmRDclpSRlSfV4/view?usp=sharing
+
+
+## Capturas de pantalla
+
 
 ## Links de Acceso a la información 
 Link del video de la presentación:
