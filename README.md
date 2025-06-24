@@ -5,35 +5,32 @@ Este proyecto consiste en la creación de una app capaz de funcionar a nivel edu
 
 
 ## Caracteristicas
-Las principales caracteristicas que puede llegar a ofrecer la aplicacion completa son:
+Las principales caracteristicas que puede llegar a ofrecer la aplicacion actualmente son:
 -Visualización de tareas pendientes de los estudiantes.
 
-- Acceso al material educativo compartido por los docentes.
+- Calendario escolar con fechas importantes y actividades pendientes por el estudiante.
 
-- Calendario escolar con fechas importantes y actividades institucionales.
+- Notificaciones automáticas sobre tareas, evaluaciones y calificaciones DENTRO DE LA APLICACIÓN (Las notificaciones que aparecen en el menu principal de las tareas pendientes).
 
-- Notificaciones automáticas sobre tareas, evaluaciones y calificaciones.
+- Interfaz simple y funcional.
 
-- Interfaz amigable.
+- Personalización de la interfaz: ajuste de tamaño de letra y cambio de tema entre claro y oscuro
 
-- Personalización de la interfaz: ajuste de tamaño de letra y cambio de tema.
-
-- Sistema de autenticación para padres.
+- Personalización de los datos en el perfil del usuario
+- 
 ## Funcionalidades Relevantes
 Se destacan las siguientes Funcionalidades Relevantes de la aplicación:
-- Inicio de sesión seguro para padres y apoderados.
-
 - Ventana principal con resumen de las actividades.
 
-- Módulo de tareas que muestra actividades pendientes, fechas de entrega y estado de cumplimiento.
+- Módulo de tareas que muestra actividades pendientes y fechas de entrega.
 
 - Visualización de calificaciones por asignatura.
 
-- Acceso al calendario institucional con posibilidad de integrar recordatorios.
+- Acceso al calendario con puntos destacados de recordatorio de las fechas de las tareas y entregas.
 
-- Descarga de recursos educativos (PDFs, videos, presentaciones, etc.).
+- Descarga de recursos educativos (PDFs, videos, presentaciones, etc. NO IMPLEMENTADO,PERO DENTRO DE LA IDEA EN LA APLICACIÓN, SOLO ICONOS DE PDF).
 
-- Sistema de alertas y notificaciones, para recordar fechas de entrega, estado de evaluaciones y mas.
+- Sistema de notificaciones, para recordar fechas de entrega DENTRO DE LA APLICACIÓN (Las notificaciones que aparecen en el menu principal de las tareas pendientes).
 
 - Compatibilidad con dispositivos Android.
 
@@ -41,13 +38,27 @@ Se destacan las siguientes Funcionalidades Relevantes de la aplicación:
 ## Links de Acceso a la información 
 Link del video de la presentación:
 
-https://youtu.be/gcmKJMqGL7A
 
 Aqui se encuentran los links de lo utilizado para la creación de este trabajo:
 
+https://pub.dev/packages/cupertino_icons
+https://pub.dev/packages/flutter_svg
+https://pub.dev/packages/logger
 https://pub.dev/packages/table_calendar
-
 https://pub.dev/packages/animated_splash_screen
+https://pub.dev/packages/image_picker
+https://pub.dev/packages/shared_preferences
+https://pub.dev/packages/sqflite
+https://pub.dev/packages/path
+https://pub.dev/packages/provider
+https://pub.dev/packages/path_provider
+https://pub.dev/packages/share_plus
+https://docs.flutter.dev/cookbook/testing/unit/introduction
+https://pub.dev/packages/flutter_launcher_icons
+https://pub.dev/packages/flutter_lints
+
+Link de el archivo .apk de la aplicación:
+https://drive.google.com/file/d/1Qvn2TDdn9IN8RHBZtRjJieJehm1As4yG/view?usp=sharing
 
 link imagenes utilizadas:
 
