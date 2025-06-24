@@ -34,7 +34,9 @@ Se destacan las siguientes Funcionalidades Relevantes de la aplicación:
 
 - Compatibilidad con dispositivos Android.
 ## Diagramas
-![Jerarquia de Pantallas](https://drive.google.com/file/d/1dSAQjuizMEFSyyGODmK5cYHiGeaGz5x-/view?usp=sharing)
+![Jerarquia de Pantallas](https://drive.google.com/file/d/1lZRGSCDRvLpNtVAkFR8U0sVeOqq3HlDt/view?usp=sharing)
+
+![Caso de Uso Principal](https://drive.google.com/file/d/1lZRGSCDRvLpNtVAkFR8U0sVeOqq3HlDt/view?usp=sharing)
 
 https://drive.google.com/file/d/1dSAQjuizMEFSyyGODmK5cYHiGeaGz5x-/view?usp=sharing
 https://drive.google.com/file/d/1Vm38I1vGgq0OhgKezWrmRDclpSRlSfV4/view?usp=sharing
